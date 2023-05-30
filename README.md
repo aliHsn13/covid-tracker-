@@ -1,6 +1,7 @@
 # covid_tracker
 
 A new Flutter project.
+this project shows covid 19 disease status in the world using api
 
 ## Getting Started
 
