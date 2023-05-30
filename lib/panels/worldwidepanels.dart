@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 
 class WorldWidePanel extends StatelessWidget {
-  const WorldWidePanel({super.key});
+  final Map worldData;
+
+  const WorldWidePanel({super.key, required this.worldData});
 
   @override
   Widget build(BuildContext context) {
     return Container(
       child: GridView(
         shrinkWrap: true,
-        physics: NeverScrollableScrollPhysics(),
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        physics: const NeverScrollableScrollPhysics(),
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
           childAspectRatio: 2,
         ),
@@ -18,25 +20,25 @@ class WorldWidePanel extends StatelessWidget {
             title: "CONFIRMED",
             panelColor: (Colors.red[100])!,
             textColor: Colors.red,
-            count: "123",
+            count: worldData["cases"].toString(),
           ),
           StatusPanel(
             title: "ACTIVE",
             panelColor: (Colors.blue[100])!,
             textColor: (Colors.blue[900])!,
-            count: "123",
+            count: worldData["active"].toString(),
           ),
           StatusPanel(
             title: "RECOVERD",
             panelColor: (Colors.green[100])!,
             textColor: Colors.green,
-            count: "123",
+            count: worldData["recovered"].toString(),
           ),
           StatusPanel(
             title: "DEATH",
             panelColor: (Colors.grey[400])!,
             textColor: (Colors.grey[900])!,
-            count: "123",
+            count: worldData["deaths"].toString(),
           ),
         ],
       ),
@@ -60,7 +62,7 @@ class StatusPanel extends StatelessWidget {
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
     return Container(
-      margin: EdgeInsets.all(10.0),
+      margin: const EdgeInsets.all(10.0),
       height: 80,
       color: panelColor,
       width: width / 2,

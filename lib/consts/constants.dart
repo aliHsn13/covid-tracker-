@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-Color primaryBlack = Color(0xff20203b);
+Color primaryBlack = const Color(0xff20203b);
 
 class ConstDatas {
   static String quote =
